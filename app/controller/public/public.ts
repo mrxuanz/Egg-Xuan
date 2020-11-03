@@ -1,7 +1,7 @@
 
 
 const Controller = require('egg').Controller;
-
+const utility = require("utility")//密码加密
 const jwt = require('jsonwebtoken')
 export default class PublicController extends Controller {
   public async login() {
@@ -9,10 +9,11 @@ export default class PublicController extends Controller {
     const config = this.config
     const { ctx } = this;
     const { username, password } = ctx.request.body
-    // const { username, password } = ctx.request.body
+    let passwords = utility.md5(password);
+     console.log(passwords)
     const user = await ctx.service.public.public.logins(username)
     if (user) {
-      if (user.password !== password) {
+      if (user.password !== passwords) {
         result = {
           code: 20001,
           error: '用户登录失败,用户名或密码错误'
