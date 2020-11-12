@@ -1,33 +1,15 @@
-# hackernews-async-ts
 
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
 
-## QuickStart
+## 简介
 
-### Development
+一直想用node相关的框架做一款前后端分离的后台管理系统，所以抽空写了一份基础版。主要使用Egg.js + ts + mysql,加密使用utility做的MD5（可以更换成别的加密形式，比如base64加盐），令牌是jsonwebtoken。目前只是完成一个雏形，只是完成登录与用户列表与新增。前端工程目前准备用Vue+Antd写一份，有空在React+Antd写一份
 
-```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
-```
 
-Don't tsc compile at development mode, if you had run `tsc` then you need to `npm run clean` before `npm run dev`.
+## 内置功能
 
-### Deploy
+1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
 
-```bash
-$ npm run tsc
-$ npm start
-```
 
-### Npm Scripts
 
-- Use `npm run lint` to check code style
-- Use `npm test` to run unit test
-- se `npm run clean` to clean compiled js at development mode once
 
-### Requirement
 
-- Node.js 8.x
-- Typescript 2.8+

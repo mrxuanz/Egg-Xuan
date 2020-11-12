@@ -16,27 +16,23 @@ export default class UsersService extends Service {
     }
   }
   public async create(data) {
-    
     let strSql = `
     SELECT username FROM user Where  username='${data.username}'
-`  
+`
     const panduan = await this.app.mysql.query(strSql)
-    console.log(panduan.length)
-    if(!panduan.length){
+    if (!panduan.length) {
       const sqlnow = this.app.mysql.literals.now
       data.creat_time = sqlnow
       const result = await this.app.mysql.insert('user', data)
-  
       const id = result.affectedRows === 1 ? result.insertId : -1
       return {
         id
       }
-    }else{
-       return{
-         msg:"用户已存在"
-       }
+    } else {
+      return {
+        msg: "用户已存在"
+      }
     }
-   
-   
   }
+  
 }
