@@ -2,7 +2,7 @@
 
 const Controller = require('egg').Controller;
 const utility = require("utility")//密码加密
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')//令牌
 export default class PublicController extends Controller {
   public async login() {
     let result = {}
@@ -10,7 +10,6 @@ export default class PublicController extends Controller {
     const { ctx } = this;
     const { username, password } = ctx.request.body
     let passwords = utility.md5(password);
-     console.log(passwords)
     const user = await ctx.service.public.public.logins(username)
     if (user) {
       if (user.password !== passwords) {
@@ -39,4 +38,6 @@ export default class PublicController extends Controller {
     }
     ctx.body = result
   }
+
+  
 }

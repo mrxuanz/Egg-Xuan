@@ -9,7 +9,8 @@ export default (appInfo: EggAppInfo) => {
 
   // add your egg config in here
 
-  config.middleware = ['authorization']
+ // middleware
+ config.middleware = ['errorHandler', 'authorization']
 
     // jwt 认证
     config.authorization = {
@@ -46,7 +47,7 @@ export default (appInfo: EggAppInfo) => {
       port: '3306',
       user: 'root',
       password: 'root',
-      database: 'jxc_test'
+      database: 'xuan'
     },
     app: true,
     agent: false,

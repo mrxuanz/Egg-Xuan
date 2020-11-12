@@ -3,11 +3,15 @@
 
 import 'egg';
 import ExportPublicPublic from '../../../app/controller/public/public';
+import ExportUsersUsers from '../../../app/controller/users/users';
 
 declare module 'egg' {
   interface IController {
     public: {
       public: ExportPublicPublic;
+    }
+    users: {
+      users: ExportUsersUsers;
     }
   }
 }
