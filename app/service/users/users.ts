@@ -3,8 +3,9 @@ import { Service } from 'egg';
 
 export default class UsersService extends Service {
   public async find(page, pagesize) {
+    page = page <= 0 ? 1 : page
     let strSql = `
-        SELECT id,username,role_name,tel,place,name FROM user LIMIT ${page},${pagesize}
+        SELECT id,username,role_name,tel,place,name FROM user LIMIT ${(page-1)*pagesize},${pagesize}
     `
     let strCountSql = `SELECT COUNT(*) AS count FROM user`
     const result = await this.app.mysql.query(strSql)
