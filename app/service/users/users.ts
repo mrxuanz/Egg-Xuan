@@ -10,7 +10,6 @@ export default class UsersService extends Service {
     let strCountSql = `SELECT COUNT(*) AS count FROM user`
     const result = await this.app.mysql.query(strSql)
     const count = await this.app.mysql.query(strCountSql)
-    console.log(count[0].count)
     return {
       counts: count[0].count,
       list: result

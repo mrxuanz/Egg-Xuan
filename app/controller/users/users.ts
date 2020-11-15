@@ -5,7 +5,6 @@ export default class UsersController extends Controller {
     public async find() {
         const { ctx } = this;
         const query = this.ctx.query
-        console.log(query.page )
         const page = query.page === undefined ? 0 : query.page
         const pagesize = query.pagesize ==undefined ? 10 : query.pagesize
         const result = await ctx.service.users.users.find(page,pagesize)
