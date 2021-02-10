@@ -21,6 +21,9 @@ export default class UsersController extends Controller {
     data.username = await username;
     data.password = await utility.md5(password);
     const result = await ctx.service.users.users.create(data);
+    if (!result.id) {
+      ctx.status = 401;
+    }
     ctx.body = result;
   }
   public async deletuser() {
